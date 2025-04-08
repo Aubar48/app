@@ -1,0 +1,13 @@
+<div class="container mt-4" *ngIf="profesional; else noEncontrado">
+  <h2>{{ profesional.nombre }}</h2>
+  <p><strong>Especialidad:</strong> {{ profesional.especialidad }}</p>
+  <p><strong>Experiencia:</strong> {{ profesional.experiencia }}</p>
+  <p>{{ profesional.descripcion }}</p>
+</div>
+
+<ng-template #noEncontrado>
+  <div class="container mt-4">
+    <h4 class="text-danger">Profesional no encontrado.</h4>
+    <a routerLink="/quienes-somos" class="btn btn-secondary mt-3">Volver a Quiénes Somos</a>
+  </div>
+</ng-template>
