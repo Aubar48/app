@@ -7,13 +7,20 @@ import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.co
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProfesionalComponent } from './pages/quienes-somos/profesional/profesional.component';
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'servicios', component: ServiciosComponent },
-  { path: 'quienes-somos', component: QuienesSomosComponent },
-  { path: 'quienes-somos/profesional/:id', component: ProfesionalComponent },
-  { path: 'registrarse', component: RegistrarseComponent },
-  { path: 'iniciar-sesion', component: IniciarSesionComponent },
+  {
+    path: '',
+    component: AppComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'servicios', component: ServiciosComponent },
+      { path: 'quienes-somos', component: QuienesSomosComponent },
+      { path: 'quienes-somos/profesional/:id', component: ProfesionalComponent },
+      { path: 'registrarse', component: RegistrarseComponent },
+      { path: 'iniciar-sesion', component: IniciarSesionComponent },
+    ]
+  },
   { path: '**', component: NotFoundComponent }
 ];
