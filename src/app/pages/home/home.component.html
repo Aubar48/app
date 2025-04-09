@@ -2,3 +2,25 @@
   <h1 class="display-4">Bienvenido a la página</h1>
   <p class="lead">Gracias por visitar nuestra app.</p>
 </div>
+
+<button class="btn btn-primary" (click)="abrirModal()">Mostrar ventana emergente</button>
+
+<!-- Modal con clases Bootstrap -->
+<div class="modal fade show d-block" tabindex="-1" role="dialog" *ngIf="modalVisible" style="background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ventana Emergente</h5>
+        <button type="button" class="close btn btn-sm" (click)="cerrarModal()" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¡Hola! Esta es una ventana emergente usando Bootstrap.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

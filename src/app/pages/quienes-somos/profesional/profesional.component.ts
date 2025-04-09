@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-profesional',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './profesional.component.html',
   styleUrls: ['./profesional.component.css']
 })
@@ -16,24 +16,27 @@ export class ProfesionalComponent {
   profesionales = [
     {
       id: '1',
-      nombre: 'Lucía Martínez',
-      especialidad: 'Psicología',
-      experiencia: '5 años',
-      descripcion: 'Apasionada por la salud mental y el bienestar emocional.'
+      photo:'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png',
+      nombre: 'Squartle',
+      especialidad: 'Agua',
+      experiencia: '5',
+      descripcion: 'pokemon de agua'
     },
     {
       id: '2',
-      nombre: 'Carlos Gómez',
-      especialidad: 'Nutrición',
-      experiencia: '7 años',
-      descripcion: 'Enfocado en ayudar a las personas a mejorar sus hábitos alimenticios.'
+      photo:'https://pm1.aminoapps.com/7037/93b9f10ff981f0c4a92943074afaf55e7e689dder1-598-640v2_uhq.jpg',
+      nombre: 'Bulbasaur',
+      especialidad: 'Planta',
+      experiencia: '5',
+      descripcion: 'pokemon de planta'
     },
     {
       id: '3',
-      nombre: 'María López',
-      especialidad: 'Entrenamiento físico',
-      experiencia: '10 años',
-      descripcion: 'Especialista en entrenamiento funcional y de fuerza.'
+      photo:'https://images.wikidexcdn.net/mwuploads/wikidex/thumb/5/56/latest/20200307023245/Charmander.png/800px-Charmander.png',
+      nombre: 'Charmander',
+      especialidad: 'Fuego',
+      experiencia: '5',
+      descripcion: 'pokemon de fuego.'
     }
   ];
 
