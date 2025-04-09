@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProfesionalService } from '../../../services/profesional.service'; // Verifica el path correcto
+import { Profesional } from '../../../models/profesional';
 
 @Component({
   selector: 'app-profesional',
@@ -12,7 +13,8 @@ import { ProfesionalService } from '../../../services/profesional.service'; // V
 })
 export class ProfesionalComponent implements OnInit {
   id!: string;
-  profesional: any;
+  profesional!: Profesional;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +25,7 @@ export class ProfesionalComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id') || '';
     
     this.profesionalService.getProfesionales().subscribe(data => {
-      this.profesional = data.find((p: any) => p.id === this.id);
+      this.profesional = data.find((p: Profesional) => p.id === this.id)!;
     });
   }
 }

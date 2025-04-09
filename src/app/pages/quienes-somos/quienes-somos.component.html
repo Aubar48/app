@@ -2,12 +2,12 @@
   <h2>Nuestros Profesionales</h2>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let profesional of profesionales">
-      <a 
-        [routerLink]="['/quienes-somos/profesional', profesional.id]" 
-        class="btn" 
+      <a [routerLink]="['/quienes-somos', profesional.nombre.toLowerCase(), profesional.id]" 
+        class="btn"
         [ngClass]="profesional.btn">
-        {{ profesional.id }} -- {{ profesional.nombre }}
+        {{ profesional.nombre }}
       </a>
+
     </li>
   </ul>
 </div>

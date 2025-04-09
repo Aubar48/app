@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'servicios', component: ServiciosComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
-  { path: 'quienes-somos/profesional/:id', component: ProfesionalComponent },
+  { path: 'quienes-somos/:nombre/:id', component: ProfesionalComponent },
   { path: 'registrarse', component: RegistrarseComponent },
   { path: 'iniciar-sesion', component: IniciarSesionComponent },
   { path: '**', component: NotFoundComponent },

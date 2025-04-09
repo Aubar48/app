@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProfesionalService } from '../../services/profesional.service'; // Asegurate de que el path esté correcto
+import { Profesional } from '../../models/profesional';
 
 @Component({
   selector: 'app-quienes-somos',
@@ -11,7 +12,8 @@ import { ProfesionalService } from '../../services/profesional.service'; // Aseg
   styleUrl: './quienes-somos.component.css'
 })
 export class QuienesSomosComponent implements OnInit {
-  profesionales: any[] = [];
+  profesionales: Profesional[] = [];
+
 
   constructor(private profesionalService: ProfesionalService) {}
 
