@@ -1,10 +1,10 @@
 <div class="container mt-4" *ngIf="profesional; else noEncontrado">
-  <img src={{profesional.photo}} alt="photo_del_profesional">
+  <img [src]="profesional.photo" alt="photo_del_profesional" class="img-fluid" style="max-width: 200px;">
   <h2>{{ profesional.nombre }}</h2>
   <p><strong>Especialidad:</strong> {{ profesional.especialidad }}</p>
   <p><strong>Experiencia:</strong> {{ profesional.experiencia }}</p>
   <p>{{ profesional.descripcion }}</p>
-  <a routerLink="/quienes-somos" class="btn btn-primary mt-3">Volver atras</a>
+  <a routerLink="/quienes-somos" class="btn btn-primary mt-3">Volver atrás</a>
 </div>
 
 <ng-template #noEncontrado>
