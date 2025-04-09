@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { ProfesionalService } from '../../../services/profesional.service'; // Verifica el path correcto
+import { ProfesionalService } from '../../../services/profesional.service';
 import { Profesional } from '../../../models/profesional';
 
 @Component({
@@ -13,8 +13,8 @@ import { Profesional } from '../../../models/profesional';
 })
 export class ProfesionalComponent implements OnInit {
   id!: string;
-  profesional!: Profesional;
-  
+  profesional!: Profesional | null;
+  error: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -22,10 +22,26 @@ export class ProfesionalComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id') || '';
-    
-    this.profesionalService.getProfesionales().subscribe(data => {
-      this.profesional = data.find((p: Profesional) => p.id === this.id)!;
+    const id = this.route.snapshot.paramMap.get('id') || '';
+    const nombre = this.route.snapshot.paramMap.get('nombre')?.toLowerCase() || '';
+  
+    this.profesionalService.getProfesionales().subscribe({
+      next: (data) => {
+        const encontrado = data.find((p: Profesional) =>
+          p.id === id && p.nombre.toLowerCase() === nombre
+        );
+  
+        if (encontrado) {
+          this.profesional = encontrado;
+        } else {
+          this.error = 'No se encontró el profesional con ese nombre y ID.';
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener el profesional:', err);
+        this.error = 'Error al cargar el profesional. Intenta más tarde.';
+      }
     });
   }
+  
 }
