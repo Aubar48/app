@@ -1,15 +1,21 @@
-<div class="container mt-4" *ngIf="profesional; else noEncontrado">
-  <img [src]="profesional.photo" alt="photo_del_profesional" class="img-fluid" style="max-width: 200px;">
-  <h2>{{ profesional.nombre }}</h2>
-  <p><strong>Especialidad:</strong> {{ profesional.especialidad }}</p>
-  <p><strong>Experiencia:</strong> {{ profesional.experiencia }}</p>
-  <p>{{ profesional.descripcion }}</p>
-  <a routerLink="/quienes-somos" class="btn btn-primary mt-3">Volver atrás</a>
-</div>
-
-<ng-template #noEncontrado>
-  <div class="container mt-4">
-    <h4 class="text-danger">Profesional no encontrado.</h4>
-    <a routerLink="/quienes-somos" class="btn btn-secondary mt-3">Volver a Quiénes Somos</a>
+<div class="container mt-4" *ngIf="usuario">
+  <h2>{{ usuario.nombre }} ({{ usuario.rol }})</h2>
+  <p><strong>Correo:</strong> {{ usuario.correo }}</p>
+  <h4>Inventario: {{usuario.inventario_name}} </h4>
+  <div *ngIf="usuario.gestor_de_inventario?.length">
+    <ul>
+      <li *ngFor="let item of usuario.gestor_de_inventario">
+        <strong>{{ item.nombre_del_objeto }}</strong><br />
+        Cantidad: {{ item.cantidad }}<br />
+        Precio: ${{ item.precio }}<br />
+        Stock: {{ item.stock }}<br />
+      </li>
+    </ul>
   </div>
-</ng-template>
+</div>
+<div class="text-end mt-4">
+  <button class="btn btn-secondary" (click)="volver()">← Volver</button>
+</div>
+<div *ngIf="error" class="alert alert-danger">
+  {{ error }}
+</div>

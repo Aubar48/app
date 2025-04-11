@@ -1,31 +1,59 @@
 {
-  "profesionales": [
+  "usuarios": [
     {
-      "id": "1",
-      "btn": "btn-primary",
-      "photo": "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png",
-      "nombre": "Squartle",
-      "especialidad": "Agua",
-      "experiencia": "5",
-      "descripcion": "pokemon de agua"
+      "id": 1,
+      "nombre": "Ana Martínez",
+      "correo": "ana.martinez@empresa.com",
+      "contraseña": "ana1234",
+      "rol": "Administrador",
+      "producto_mas_utilizado": "pantalón",
+      "frecuencia_de_reposicion": "dos veces por semana",
+      "inventario_name":"ropa",
+      "gestor_de_inventario": [
+        {
+          "id": 1,
+          "nombre_del_objeto": "pantalón",
+          "cantidad": "10",
+          "precio": "15",
+          "stock": "10 > 0 : hay stock"
+         
+        },
+        {
+          "id": 2,
+          "nombre_del_objeto": "camiseta",
+          "cantidad": "5",
+          "precio": "10",
+          "stock": "5 > 0 : hay stock"
+          
+        }
+      ]
     },
     {
-      "id": "2",
-      "btn": "btn-success",
-      "photo": "https://pm1.aminoapps.com/7037/93b9f10ff981f0c4a92943074afaf55e7e689dder1-598-640v2_uhq.jpg",
-      "nombre": "Bulbasaur",
-      "especialidad": "Planta",
-      "experiencia": "5",
-      "descripcion": "pokemon de planta"
-    },
-    {
-      "id": "3",
-      "btn": "btn-danger",
-      "photo": "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/5/56/latest/20200307023245/Charmander.png/800px-Charmander.png",
-      "nombre": "Charmander",
-      "especialidad": "Fuego",
-      "experiencia": "5",
-      "descripcion": "pokemon de fuego."
+      "id": 2,
+      "nombre": "Juan López",
+      "correo": "juan.lopez@empresa.com",
+      "contraseña": "juan9876",
+      "rol": "Usuario Básico",
+      "producto_mas_utilizado": "arroz",
+      "frecuencia_de_reposicion": "una vez por semana",
+      "inventario_name":"alimentos",
+      "gestor_de_inventario": [
+        {
+          "id": 3,
+          "nombre_del_objeto": "arroz",
+          "cantidad": "20",
+          "precio": "2",
+          "stock": "20 > 0 : hay stock"
+          
+        },
+        {
+          "id": 4,
+          "nombre_del_objeto": "aceite",
+          "cantidad": "0",
+          "precio": "3",
+          "stock": "0 > 0 : no hay stock"
+        }
+      ]
     }
   ]
 }

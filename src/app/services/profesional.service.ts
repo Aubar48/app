@@ -2,30 +2,29 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Profesional } from '../models/profesional';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProfesionalService {
+export class UsuarioService {
 
-  private apiUrl = 'http://localhost:3000/profesionales';
+  private apiUrl = 'http://localhost:3000/usuarios';
 
   constructor(private http: HttpClient) { }
 
-  getProfesionales(): Observable<Profesional[]> {
-    return this.http.get<Profesional[]>(this.apiUrl).pipe(
-      catchError(this.handleError('obtener profesionales'))
+  getUsuarios(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.apiUrl).pipe(
+      catchError(this.handleError('obtener usuarios'))
     );
   }
 
-  getProfesionalById(id: string): Observable<Profesional> {
-    return this.http.get<Profesional>(`${this.apiUrl}/${id}`).pipe(
-      catchError(this.handleError(`obtener el profesional con id ${id}`))
+  getUsuarioById(id: string): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUrl}/${id}`).pipe(
+      catchError(this.handleError(`obtener el usuario con id ${id}`))
     );
   }
 
-  // 👇 Función privada reutilizable para manejo de errores
   private handleError(context: string) {
     return (error: any) => {
       console.error(`Error al ${context}:`, error);

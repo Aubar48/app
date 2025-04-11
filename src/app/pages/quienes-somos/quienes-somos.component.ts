@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ProfesionalService } from '../../services/profesional.service';
-import { Profesional } from '../../models/profesional';
+import { UsuarioService } from '../../services/profesional.service';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-quienes-somos',
@@ -12,19 +12,19 @@ import { Profesional } from '../../models/profesional';
   styleUrl: './quienes-somos.component.css'
 })
 export class QuienesSomosComponent implements OnInit {
-  profesionales: Profesional[] = [];
+  usuarios: Usuario[] = [];
   error: string = '';
 
-  constructor(private profesionalService: ProfesionalService) {}
+  constructor(private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
-    this.profesionalService.getProfesionales().subscribe({
+    this.usuarioService.getUsuarios().subscribe({
       next: (data) => {
-        this.profesionales = data;
+        this.usuarios = data;
       },
       error: (err) => {
-        console.error('Error al obtener los profesionales:', err);
-        this.error = 'No se pudieron cargar los profesionales. Intenta más tarde.';
+        console.error('Error al obtener los usuarios:', err);
+        this.error = 'No se pudieron cargar los usuarios. Intenta más tarde.';
       }
     });
   }

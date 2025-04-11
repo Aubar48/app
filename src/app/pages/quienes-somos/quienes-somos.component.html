@@ -1,13 +1,12 @@
-<div class="container mt-4">
-  <h2>Nuestros Profesionales</h2>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let profesional of profesionales">
-      <a [routerLink]="['/quienes-somos', profesional.nombre.toLowerCase(), profesional.id]" 
-        class="btn"
-        [ngClass]="profesional.btn">
-        {{ profesional.nombre }}
-      </a>
+<li class="list-group-item" *ngFor="let usuario of usuarios">
+  <h5>{{ usuario.nombre }} ({{ usuario.rol }})</h5>
+  <p><strong>Correo:</strong> {{ usuario.correo }}</p>
+  <p><strong>Producto más utilizado:</strong> {{ usuario.producto_mas_utilizado }}</p>
+  <p><strong>Frecuencia de reposición:</strong> {{ usuario.frecuencia_de_reposicion }}</p>
+  <!-- 🔘 Botón de navegación -->
+  <button class="btn btn-primary mt-2" [routerLink]="['/quienes-somos', usuario.id]">
+    Inventario: {{usuario.inventario_name}}
+  </button>
 
-    </li>
-  </ul>
-</div>
+  <hr />
+</li>
